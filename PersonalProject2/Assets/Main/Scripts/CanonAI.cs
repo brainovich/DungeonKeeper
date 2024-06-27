@@ -28,7 +28,6 @@ public class CanonAI : MonoBehaviour
 
     private bool canShoot = true;
     public bool isIdle = true;
-    public bool isDetected = false;
 
 
     // Start is called before the first frame update
@@ -45,11 +44,9 @@ public class CanonAI : MonoBehaviour
         Debug.DrawRay(transform.position, direction * visibilityRange, Color.green);
         Debug.DrawRay(transform.position, direction * shootingRange, Color.red);
 
-        
-        isDetected = visibilityDetector.collider.gameObject.tag == "Player";
-        isIdle = !isDetected;
+        isIdle = !IsDetected();
 
-        if (visibilityDetector.collider.gameObject.tag == "Player" && !GameManager.instance.playerControlls.IsDead)
+        if (IsDetected() && !GameManager.instance.playerControlls.IsDead)
         {
             gun.transform.right = direction;
             if (Vector3.Distance(transform.position, target.position) < shootingRange && canShoot)
@@ -80,6 +77,17 @@ public class CanonAI : MonoBehaviour
             {
                 current += Time.deltaTime * gunRotationSpeed;
             }
+        }
+    }
+    private bool IsDetected()
+    {
+        if(visibilityDetector.collider != null)
+        {
+            return visibilityDetector.collider.gameObject.tag == "Player";
+        }
+        else
+        {
+            return false;
         }
     }
 

@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    private Collider2D collider;
-    private SpriteRenderer sprite;
-    private Animator animator;
+    private Collider2D _collider;
+    private SpriteRenderer _sprite;
+    private Animator _animator;
 
     private void Start()
     {
-        collider = GetComponent<Collider2D>();
-        sprite = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>();
+        _collider = GetComponent<Collider2D>();
+        _sprite = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,9 +20,9 @@ public class Checkpoint : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             GameManager.instance.playerControlls.SetCheckpoint(transform.position);
-            collider.enabled = false;
+            _collider.enabled = false;
             GameManager.instance.itemsBehaviour.SaveScore();
-            animator.SetBool("activated", true);
+            _animator.SetBool("activated", true);
         }
     }
 }

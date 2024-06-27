@@ -11,10 +11,6 @@ public class ItemsBehaviour : MonoBehaviour
     private void Start()
     {
         coins = GameObject.FindGameObjectsWithTag("Coin");
-        for(int i = 0; i < coins.Length; i++)
-        {
-            Debug.Log(i);
-        }
         coinsAtLevel = coins.Length;
     }
 

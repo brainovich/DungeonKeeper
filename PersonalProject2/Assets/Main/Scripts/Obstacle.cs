@@ -45,12 +45,12 @@ public class Obstacle : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Player") && canDamage)
+        if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable) && canDamage)
         {
             Debug.Log("colided");
             collision.rigidbody.AddForce(Vector2.left * Random.Range(-10,10), ForceMode2D.Impulse);
             collision.rigidbody.AddForce(Vector2.up * 10, ForceMode2D.Impulse);
-            GameManager.instance.playerControlls.TakeDamage(damage);
+            damagable.TakeDamage(damage);
         }
     }
 

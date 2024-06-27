@@ -130,11 +130,11 @@ public class EnemyAI : MonoBehaviour
         float speed = collision.relativeVelocity.magnitude;
         speed = Mathf.Clamp(speed, 0, 10);
 
-        if (collision.transform.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable))
         {
             collision.rigidbody.AddForce(-collision.relativeVelocity.normalized * speed * force);
             collision.rigidbody.AddForce(Vector2.up * 10);
-            GameManager.instance.playerControlls.TakeDamage(damage);
+            damagable.TakeDamage(damage);
         }
         else if (collision.transform.CompareTag("Projectile"))
         {

@@ -28,11 +28,11 @@ public class EnemyBullet : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
-        if (collision.transform.CompareTag("Player"))
+        if (collision.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable))
         {
             collision.rigidbody.AddForce(-collision.relativeVelocity.normalized *  hitForce);
             collision.rigidbody.AddForce(Vector2.up * 10);
-            GameManager.instance.playerControlls.TakeDamage(damage);
+            damagable.TakeDamage(damage);
         }
     }
 }

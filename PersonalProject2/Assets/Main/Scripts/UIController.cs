@@ -113,7 +113,6 @@ public class UIController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         GameManager.instance.playerControlls.AllowShoot(true);
-        Debug.Log("cursor turned off");
     }
 
     public void TurnOnCursor()
@@ -121,7 +120,6 @@ public class UIController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         GameManager.instance.playerControlls.AllowShoot(false);
-        Debug.Log("cursor turned on");
     }
 
     public void DeathScrren(bool turnOn)
