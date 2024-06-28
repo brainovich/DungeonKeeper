@@ -215,23 +215,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04897b9a37b920545b51c8858d9599ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visibilityRange: 15
-  shootingRange: 6
-  shootingCooldown: 1
-  min: 90
-  max: 270
-  current: 90
-  minimize: 0
-  gunRotationSpeed: 20
-  gun: {fileID: 5223457788765944026}
-  projectile: {fileID: 6856862930577315369, guid: b7d7ddb8cda4be5479c0c3dce03ba25c, type: 3}
-  shootingPoint: {fileID: 5223457789136445818}
-  maskToIgnore:
+  _minRotation: 0
+  _maxRotation: 0
+  _rotationSpeed: 0
+  _gun: {fileID: 5223457788765944026}
+  _projectile: {fileID: 6856862930577315369, guid: b7d7ddb8cda4be5479c0c3dce03ba25c, type: 3}
+  _shootingPoint: {fileID: 5223457789136445818}
+  _maskToIgnore:
     serializedVersion: 2
     m_Bits: 256
-  soundManager: {fileID: 5223457789196257360}
-  isIdle: 1
-  isDetected: 1
 --- !u!82 &5223457789196257361
 AudioSource:
   m_ObjectHideFlags: 0

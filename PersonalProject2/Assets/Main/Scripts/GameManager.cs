@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public ScoreManager scoreManager;
     public PlayerControlls playerControlls;
-    public HealthBar healthBar;
     public ItemsBehaviour itemsBehaviour;
     public UIController uiController;
 

@@ -5,21 +5,14 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
 
-    public Transform target;
+    [SerializeField] private Transform _target;
+    private float _smoothSpeed = 0.125f;
+    private Vector3 _offset = new Vector3(0, 2, -15);
 
-    public float soomthSpeed = 0.125f;
-
-    public Vector3 offset;
-
-    // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, soomthSpeed);
+        Vector3 desiredPosition = _target.position + _offset;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, _smoothSpeed);
         transform.position = smoothedPosition;
-
-        //ѕрикольно заваливающийс€ угол камеры при передвижении
-        //ћожно использовать дл€ большей динамики
-        //transform.LookAt(target);
     }
 }
